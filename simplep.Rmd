@@ -1,0 +1,352 @@
+---
+title: "Cómo hacer presentaciones con R"
+subtitle: "Todo lo que tienes que saber"
+author: "Fernando Villalba"
+date: " `r Sys.Date()`"
+institute: " `r icon::fa_rocket(animate = 'spin')` https://www.enRdados.net"
+output:
+    xaringan::moon_reader:
+     transition: slide
+     lib_dir: libs
+     css:
+      - default
+      - default-fonts 
+      - "animate.min.css"       
+     nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+layout: true
+background-image: url(logoR.png)
+background-position: 95% 0% 
+background-size: 10%
+
+```{r setup, include=FALSE}
+#<div class="my-footer"><span>www.enRdados.net</span></div> 
+options(htmltools.dir.version = FALSE)
+#library("xaringan")
+
+# https://yihui.name/en/2017/08/why-xaringan-remark-js/
+# para verolo en directo
+#  xaringan::inf_mr()
+
+#https://yihui.name/en/2019/02/ultimate-inf-mr/
+# https://slides.yihui.name/xaringan/#8
+
+# https://yihui.name/en/2017/08/why-xaringan-remark-js/
+
+# para guardar la presentacion como pdf
+# necesito el paquete pagedown y chrome instalado en el PC
+# pagedown::chrome_print("C:/R/proyectos/mentoring/pMentoring3.html")
+```
+
+---
+class: animated, fadeInRight
+
+# Paquetes necesarios
+
+## el principal:
+- [xaringan](https://github.com/yihui/xaringan): `install_packages("xarigan")` o `remotes::install_github('yihui/xaringan')`
+
+## otros:
+- [xaringanthemer](https://github.com/gadenbuie/xaringanthemer) aporta mas formatos o cómo hacerlo son mucho css.
+- [pagedown](https://github.com/rstudio/pagedown): para convertir a pdf la presentación
+- knitr: es el que hace todo por dentro
+- [icons](https://github.com/ropenscilabs/icon): muy útil para insertar iconos  `devtools::install_github("ropenscilabs/icon")`
+
+---
+class: animated, fadeInLeft
+
+# Ver cambios en tiempo real
+
+Un problema con Rmarkdown es que cuando escribes el código de la presentación tienes que dar constantemente a *knitr*. Esto se ha solucionado con el adding de RSTUDIO *Infinite Moon Reader*, ahora para previsualizar en tiempo real la presentación lo que hacemos es ejecutar el siguiente código y nos aparecerá en la ventana de vista la presentación con los cambios que vayamos haciendo.
+
+```{r eval=FALSE}
+  xaringan::inf_mr()
+```
+
+---
+class: animated, zoomInUp
+
+# Títulos
+
+Los titulos se crean como en Rmarkdown con el símbolo #
+
+## Titulo 2
+
+### Titulo 3
+
+```{r eval=FALSE}
+
+# Titulo 1
+
+## Titulo 2
+
+### Titulo 3
+
+#### Titulo 4
+```
+
+Es así `r icon::fa('rocket', size = 3)`
+
+---
+class: animated, fadeIn
+
+# Insertar imágenes
+
+Se pueden insertar imágenes con código Rmarkdown por ejemplo así:
+
+```{}
+![imagen de muestra](ruta/a/la/imagen.jpg)
+```
+pero esto lleva a tener muy poco control sobre cómo sale en la pantalla, por lo que yo prefiero hacerlo a través de `knitr`, de esta forma en el encabezado del cuadro de código le puedo meter muchas  más opciones, de tamaño centrado etc..
+con esto obtengo
+
+```{}
+{r echo=FALSE, out.width = "500px", out.height="250px",fig.align='center'}
+knitr::include_graphics("imag/civileng.jpg")
+
+```
+
+```{r echo=FALSE, out.width = "500px", out.height="250px",fig.align='center'}
+knitr::include_graphics("imag/civileng.jpg")
+```
+
+---
+class: animated, fadeIn
+
+# Formato
+
+El formato de la presentación se selecciona dentro del encabezado *YAML* tras `css`. Como vemos se pone el nombre del theme de formato y el de las fuentes o letras sin la extension css:
+
+```{}
+output:
+  xaringan::moon_reader:
+    css: [default, metropolis, metropolis-fonts]
+```
+
+Siempre conviene dejar el *default* primero, y a continuación cualquiera de estos
+
+```{r}
+names(xaringan:::list_css())
+```
+
+Si sabemos *css*, y cambiamos formatos lo podemos incluir también, poniendo la extension:
+```{}
+output:
+  xaringan::moon_reader:
+    css: ["my-theme.css", "my-font.css"]
+```
+
+---
+class: animated, jackInTheBox
+
+# Layout
+
+Lo normal es usar una plantilla, esto lohacemos nombrando una diapo como `layout`, de esta forma se repetirá en todas las demás, excepto si ponemos `layout:false`. 
+
+Esto nos permite poner imagenes en esquinas o formatos generales, por ejemplo:
+
+```{}
+layout: true
+background-image: url(logoR.png)
+background-position: 95% 0% 
+background-size: 10%
+
+```
+
+De la misma forma podemos crear distintas plantillas con nombres  y luego llamar a esta plantilla con `template:nombre_plantilla`
+```{}
+name: plantilla_fer
+class: inverse, bottom
+background-image: url(imag/fer.jpg)
+background-size: contain
+
+## 1.
+```
+
+La llamariamos con `template: plantilla_fer` tras `---`
+
+---
+
+class: inverse
+
+# Cambio de diapositiva
+
+Cada vez que queramos empezar una nueva diapositiva, lo haremos con el simbolo '---', tras el que podemos especificar la plantilla o directamente el texto que quieramos.
+
+Si no ponemos nada la clase será la de layout, pero si ponemos alguna caracteristica se cambiará a la especificada.
+
+```{}
+# define clase inversa centrado en medio
+ class: inverse, center, middle
+
+# inserta imagen de fondo
+ background-image: url(imag/fondo5.jpg)
+ background-size: cover
+```
+
+---
+
+# Insertar videos
+
+Hay que hacerlo como iframe
+
+```{}
+<iframe width="560" height="315" src="https://www.youtube.com/embed/HiyEZOKgSj8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+```
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/HiyEZOKgSj8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+---
+
+background-image: url(imag/fondo6.jpg)
+background-size: cover
+
+
+# Imagen de fondo
+
+se pone el siguiente código tras el cambio de diapo:
+
+```{}
+background-image: url(imag/fondo6.jpg)
+background-size: cover
+```
+
+
+---
+
+# Accion incremental
+
+Existe la posibilidad de hacer aparecer de forma incremental un texto o apartado, para ello usaremos: `--`. Cada vez que lo insertemos se crea una pausa que requiere reacción para avanzar.
+
+```{r eval=FALSE}
+- punto 1
+
+--
+
+- punto 2...
+
+```
+
+- punto 1
+
+--
+
+- punto 2...
+
+
+---
+
+
+# Dos columnas
+
+Lo hacemos con código css:
+
+
+```{r eval=FALSE}
+.pull-left[
+## Columna izquierda
+ Esto lo pondrá a la izquierda
+]
+
+.pull-right[
+## columna derecha
+ Esto a la derecha
+]
+```
+
+.pull-left[
+## Columna izquierda
+ Esto lo pondrá a la izquierda
+]
+
+.pull-right[
+## columna derecha
+ Esto a la derecha
+]
+
+---
+
+# Animación cambio diapositiva
+
+Es posible usar reveals.js para hacer efectos en el cambio de diapositiva, aunque la documentación de xaringan no lo pone, podemos usar directamente reveals.js para ello de la siguiente forma:
+
+1. descargamos el css de efectos, en la carpeta de proyecto
+```{r eval=FALSE}
+download.file("https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css", destfile ="animate.min.css" )
+```
+1. añadimos el css y transition en YAML:
+```{}
+output:
+    xaringan::moon_reader:
+{     transition: slide}
+     lib_dir: libs
+     css:
+      - default
+      - default-fonts 
+{      - "animate.min.css"}       
+     nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+```
+1. Añadimos en el layout (si es en todas) o en la diapo que queramos el tipo de transición.Para buscar el efecto que nos guste mas es muy util esta web: https://daneden.github.io/animate.css/
+
+```{}
+class: animated, bounceInDown
+```
+
+
+
+
+---
+
+# icons
+
+El uso de iconos es muy interesante. Usaremos la librería icons para insertar cualquier icono de las fuentes dsiponibles
+Para instalar `devtools::install_github("ropenscilabs/icon")`, y después se pueden usar las bibliotecas de:
+
+* los de <https://fontawesome.com/icons?d=gallery> `r icon::fa('keyboard', size = 3) `
+
+```{}
+icon::fa('keyboard', size = 3)
+```
+
+* los de <https://ionicons.com/> `r icon::ii('social-bitcoin', size = 3)`
+
+```{}
+icon::ii('social-bitcoin', size = 3)
+```
+
+
+* los de <https://jpswalsh.github.io/academicons/>
+```{r}
+icon::ai('coursera', size = 3)
+```
+
+---
+# Ejecutar sin conexión web
+Hay ocasioens en las que las presentaciones se hacen sin conexión, en estos casos hay que tener en cuenta que por defecto xaringan se conecta a la version online de *remark.js*. Si queremos que lo haga a la local, priemro debemos bajar un copia con `xaringan::summon_remark()` y después apuntar hacia ella en el *YAML* así:
+
+```{}
+
+output:
+  xaringan::moon_reader:
+    chakra: libs/remark-latest.min.js
+```
+
+
+---
+
+class: inverse, center, middle, animated, bounceInDown
+
+```{r echo=FALSE, out.width = "500px", out.height="400px",fig.align='center'}
+knitr::include_graphics("imag/estoestodo.jpg")
+```
+
+Muchas Gracias!!
+
+`r icon::fa('paper-plane')`

@@ -1,0 +1,284 @@
+---
+title: "I Programa Mentor"
+subtitle: "Demarcación Region de Murcia CICCP"
+author: " "
+date: " `r Sys.Date()`"
+institute: " `r icon::fa_rocket(animate = 'spin')`  Fernando Villalba Bergado"
+output:
+    xaringan::moon_reader:
+     transition: slide
+     lib_dir: libs
+     css:
+      - default
+      - default-fonts 
+      - "animate.min.css"   
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+editor_options: 
+  chunk_output_type: console
+---
+
+layout: true
+background-image: url(imag/logoCCMurcia.png)
+background-position: 100% 0% 
+background-size: 12%
+
+```{r setup, include=FALSE}
+#<div class="my-footer"><span>www.enRdados.net</span></div> 
+options(htmltools.dir.version = FALSE)
+library("xaringan")
+
+# https://yihui.name/en/2017/08/why-xaringan-remark-js/
+# para verolo en directo
+#  xaringan::inf_mr()
+
+#https://yihui.name/en/2019/02/ultimate-inf-mr/
+# https://slides.yihui.name/xaringan/#8
+
+# https://yihui.name/en/2017/08/why-xaringan-remark-js/
+
+# para guardar la presentacion como pdf
+# necesito el paquete pagedown y chrome instalado en el PC
+# pagedown::chrome_print("C:/R/proyectos/mentoring/pMentoring3.html")
+```
+
+---
+class: inverse, center, middle
+
+# y ahora ¿ qué ?
+
+```{r echo=FALSE, fig.align='center', out.width = "600px", out.height="400px"}
+knitr::include_graphics("imag/puertas.jpg")
+```
+
+--
+
+El mentoring es la `r icon::fa('key')` para abrir muchas `r icon::fa('door-open')`
+
+---
+class: animated, fadeInRight
+
+# ¿Qué es el mentoring?
+
+ `r icon::fa('arrow-alt-circle-right')` El **mentoring** es un proceso de desarrollo personal y profesional en el que una persona con más experiencia y conocimientos ayuda a otras que no disponen de esa experiencia ni conocimientos.
+
+ `r icon::fa('arrow-alt-circle-right')` Es un servicio de apoyo, basado en la *escucha*, el *diálogo*,la *orientación*, *compartir experiencias* y acompañar.
+
+
+```{r echo=FALSE, out.width = "600px", out.height="200px",fig.align='center'}
+knitr::include_graphics("imag/mentoring.jpg")
+```
+
+---
+class: animated, fadeInLeft
+
+# El Origen
+
+Todo viene de *"La Odisea”* de *Homero*
+
+* Ulises (*Odiseo en griego*) parte a la batalla de **Troya**, en la que sería vencedor. 
+  Antes de marchar dejó a su hijo **Telémaco** a cargo de un gran amigo **Méntor**.
+  
+* En realidad **Méntor** es la diosa *Atenea* que guía, conduce y aconseja a *Telémaco*, para que desarrolle y potencie sus habilidades, su talento.
+  
+* **Méntor** no inculca, no da clases magistrales; emplea el diálogo para que el discípulo aprenda por sí mismo, y de este modo, llegue a convertirse en un líder eficaz y en un hombre que piensa en libertad.  
+
+```{r echo=FALSE,fig.align='center', out.width = "200px", out.height="200px"}
+knitr::include_graphics("imag/telemachus_and_mentor1.jpg")
+```
+
+---
+class: animated, jackInTheBox
+
+# Objetivos del programa
+
+- Acelerar el proceso de desarrollo personal `r icon::fa('rocket')`
+- Favorece la transmisión de valores y conocimiento `r icon::fa('people-carry')`
+- Transmitir experiencia `r icon::fa('user-graduate')`
+- Crea vínculos personales, profesionales y de colectivo.`r icon::fa('handshake')`
+- Motiva, mejora la confianza y refuerza la iniciativa personal. `r icon::fa('award')`
+
+```{r echo=FALSE, out.width = "500px", out.height="250px",fig.align='center'}
+knitr::include_graphics("imag/civileng.jpg")
+```
+---
+class: inverse, animated, fadeInLeft
+
+# Objetivos del programa II
+
+* `r icon::fa('user-friends')` Actuar sobre vuestras habilidades blandas  
+
+* `r icon::fa('hand-holding-usd')` La carrera te aporta conocimientos técnicos, el mentoring otras habilidades complementarias
+
+```{r echo=FALSE, fig.align='center', out.width = "600px", out.height="400px"}
+knitr::include_graphics("imag/competencias_soft_competencias_hard_infografia.png")
+```
+
+
+---
+class: inverse,animated, fadeInLeft
+
+# ¿Quíenes intervienen?
+
+.pull-left[
+
+# Mentor
+
+- Facilita el desarrollo del **pupilo**, a través del intercambio de sus propios recursos, conocimientos, valores, habilidades, perspectivas, actitudes y competencias.
+
+- Le ofrece la oportunidad de desarrollar nuevas perspectivas, *hacerse preguntas*, conocer otras inquietudes y ampliar su visión  personal y profesional.
+
+
+]
+
+.pull-right[
+# Pupilo
+
+- El **pupilo** desarrollará habilidades y conocimientos que le ayudarán a alcanzar las metas que *él mismo defina*.
+
+```{r echo=FALSE, out.width = "500px", out.height="200px"}
+knitr::include_graphics("imag/jodaLuke.jpg")
+```
+]
+
+---
+
+# Habilidades requeridas
+.pull-left[
+# Mentor
+- Escucha activa
+- Construcción gradual de confianza
+- Definición de objetivos y desarrollo de capacidades
+- Dar soporte e inspiración
+- Ser ejemplo
+
+```{r echo=FALSE, out.width = "500px", out.height="200px"}
+knitr::include_graphics("imag/Karate-Kid.jpg")
+```
+
+]
+.pull-right[
+# Pupilo
+- Escucha activa
+- Voluntad de aprendizaje
+- Construcción gradual de confianza
+- Definir objetivos
+- **Proactividad**
+
+
+```{r echo=FALSE, fig.align='center', out.width = "200px", out.height="200px"}
+knitr::include_graphics("imag/leongato.jpg")
+```
+
+]
+---
+class: animated, jackInTheBox
+
+# Etapas de un programa mentoring
+
+ Lo primero es tener un entorno de desarrollo favorable dentro de la empresa, colegio profesional...después:
+
+`r icon::fa('thumbs-up')` **Construcción de la relación entre mentor y pupillo** 
+
+`r icon::fa('thumbs-up')` **Intercambio de información y fijación de metas**
+
+`r icon::fa('thumbs-up')` **Definir trabajos y acciones para lograr los objetivos**
+
+`r icon::fa('thumbs-up')` **Fin del programa mentoring y planificación de futuro**
+
+```{r echo=FALSE, fig.align='center',out.width = "700px", out.height="200px"}
+knitr::include_graphics("imag/montana.jpg")
+# iconos aquíu:
+#https://fontawesome.com/icons?d=gallery
+```
+
+---
+
+# Desarrollo del I programa mentór CICCP Murcia
+
+- Análisis de los perfiles y emparejamientos
+
+--
+
+- 2 jornadas con talleres grupales
+
+--
+
+- 2 meses de relaciones mentor y pupilo (la meta es tener al menos 5 encuentros con el mentor durante el programa de 9 semanas)
+
+- Seguimiento continuo por parte del coordinador
+
+--
+
+- Clausura y exposición final.
+
+---
+
+background-image: url(imag/fondo6.jpg)
+background-size: cover
+
+# Jornadas comunes
+
+.pull-left[
+### Taller I
+- Desarrollo de marca personal
+
+### Taller II
+- Experiencias vitales.
+
+### Clausura  
+- Exposición de trabajo fin de programa.
+- Coloquio de cierre de programa
+]
+
+.pull-right[
+
+```{r echo=FALSE, out.width = "500px", out.height="400px"}
+knitr::include_graphics("imag/calendario2019.jpg")
+
+```
+]
+
+---
+class: animated, jackInTheBox
+# Inscritos
+
+```{r echo=FALSE}
+participes<-data.frame(stringsAsFactors=FALSE,
+                       id=c(1,2,3,4,5,0,0),
+      Mentee = c("Carlos", "Miriam", "Patricio", "Marco", "Álvaro", " " , " "),
+    Mentores = c("Moisés Lázaro Blázquez", "Miguel López Gadea",
+                 "Alejandro  Lázaro Badenas", "José María Gómez Fuster",
+                 "Juanjo Carrasco", "Mariano Molina García", "Arturo Berzosa Moreno"),
+    sector=c("Público carreteras", "Gestión privada", "Construcción", "Puertos", "Consultoría hidráulica", "Construcción", "Formación privada")
+)
+
+```
+
+.pull-left[
+
+```{r echo=FALSE}
+knitr::kable(participes[1:5,1:2], format = "html")
+
+```
+
+]
+
+.pull-right[
+
+```{r echo=FALSE}
+knitr::kable(participes[,3:4], format = "html")
+
+```
+]
+
+---
+class: inverse, center, middle,animated, jackInTheBox
+
+# Si tienes talento, no lo uses para llegar más lejos, úsalo para llegar más acompañado
+
+Muchas Gracias!!
+
+`r icon::fa('paper-plane')`
